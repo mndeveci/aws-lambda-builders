@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-linux:
-    name: ${{ matrix.os }} / ${{ matrix.python }} / ${{ matrix.target }}
+    name: ${{ matrix.os }} / ${{ matrix.python }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -17,10 +17,6 @@ jobs:
           - "3.7"
           - "3.8"
           - "3.9"
-        target:
-          - "pr"
-          - "func-test"
-          - "integ-test"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -39,5 +35,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-      - run: make ${{ matrix.target }}
+      - run: make pr
+      - run: make func-test
+      - run: make integ-test
 
