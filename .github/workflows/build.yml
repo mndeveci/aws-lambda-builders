@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-linux:
-    name: ${{ matrix.os }} / ${{ matrix.python }} / {{ matrix.target }}
+    name: ${{ matrix.os }} / ${{ matrix.python }} / ${{ matrix.target }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
