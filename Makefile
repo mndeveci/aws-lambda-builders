@@ -7,11 +7,11 @@ test:
 	LAMBDA_BUILDERS_DEV=1 pytest -vv --cov aws_lambda_builders --cov-report term-missing --cov-fail-under 94 tests/unit tests/functional
 
 func-test:
-	LAMBDA_BUILDERS_DEV=1 pytest tests/functional
+	LAMBDA_BUILDERS_DEV=1 pytest -vv tests/functional
 
 integ-test:
 	# Integration tests don't need code coverage
-	LAMBDA_BUILDERS_DEV=1 pytest tests/integration
+	LAMBDA_BUILDERS_DEV=1 pytest -vv tests/integration
 
 lint:
 	# Liner performs static analysis to catch latent bugs
